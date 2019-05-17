@@ -20,6 +20,10 @@ class MainViewModel(private val dataRepository: DataRepository) : ViewModel() {
         workInfo = workManager.getWorkInfosByTagLiveData(TAG_OUTPUT)
     }
 
+    fun navToSearch() {
+
+    }
+
     fun checkAndApplyDataUpdates() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.UNMETERED)

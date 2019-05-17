@@ -4,6 +4,7 @@
 
 package ca.llamabagel.transpo.ui.home
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import ca.llamabagel.transpo.R
 import ca.llamabagel.transpo.di.inject
+import ca.llamabagel.transpo.utils.Actions
+import ca.llamabagel.transpo.utils.startActivity
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button).setOnClickListener {
             viewModel.checkAndApplyDataUpdates()
+        }
+
+        findViewById<Button>(R.id.searchBtn).setOnClickListener {
+            startActivity(Actions.newSearchIntent(this))
         }
 
         viewModel.workInfo.observe(this, Observer {
